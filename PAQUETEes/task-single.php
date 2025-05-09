@@ -13,12 +13,12 @@ if(isset($_POST['id'])) {
      $json = array();
   while($row = mysqli_fetch_array($result)) {
     $json[] = array(
-      'name' => utf8_encode($row['Nombre']),
-      'description' => utf8_encode($row['Descripcion']),
+      'name' => ($row['Nombre']),
+      'description' => ($row['Descripcion']),
       'id' => $row['ID'],
       'image' => base64_encode($row['Imagen']),
       'price' => $row['Precio'],
-      'place' => utf8_encode($row['Lugar']),
+      'place' => ($row['Lugar']),
       'date' => $row['Fecha']
     );
   }

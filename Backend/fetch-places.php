@@ -2,7 +2,7 @@
 
 
     include("db.php");
-    $category = mysqli_real_escape_string($connection, utf8_decode($_POST['category']));
+    $category = mysqli_real_escape_string($connection, ($_POST['category']));
    
     $query= "SELECT * from places where category='$category';";
 
@@ -16,11 +16,11 @@
             while($row = mysqli_fetch_array($result)){
                 $json[] = array(
                     'id' => $row['id'],
-                    'name' => utf8_encode($row['name']),
-                    'description' => utf8_encode($row['description']),
+                    'name' => ($row['name']),
+                    'description' => ($row['description']),
                     'rating' => $row['rating'],
                     'image' => base64_encode($row['image']),
-                    'location' => utf8_encode($row['location']),
+                    'location' => ($row['location']),
                 );
             }
             $jsonString = json_encode($json);

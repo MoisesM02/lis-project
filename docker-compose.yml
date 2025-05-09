@@ -17,7 +17,7 @@ services:
     image: mysql:8.0
     restart: always
     ports:
-      - 8083:3306
+      - 8083:3307
     environment:
       MYSQL_ROOT_PASSWORD: Mdvlinux23
       MYSQL_DATABASE: test

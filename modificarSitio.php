@@ -36,12 +36,12 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rolid"] != "1"){
     $datos = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $datos[]=array(
-            "descripcion" => utf8_encode($row["description"]),
-            "name" => utf8_encode($row["name"]),
+            "descripcion" => ($row["description"]),
+            "name" => ($row["name"]),
             "info" => urldecode($row["info"]),
-            "ubicacion" => utf8_encode($row["location"]),
-            "categoria" => utf8_encode($row["category"]),
-            "imgData" => utf8_encode($row["image"]),
+            "ubicacion" => ($row["location"]),
+            "categoria" => ($row["category"]),
+            "imgData" => ($row["image"]),
         );
     }
  ?>

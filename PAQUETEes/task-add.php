@@ -25,11 +25,11 @@
  //Preparar las variables para ejecutar sql
                     if(isset($_POST['name'])) {
                     $img = addslashes(file_get_contents($image["tmp_name"]));
-                    $name = mysqli_real_escape_string($connection, utf8_decode($_POST['name']));
-                    $description = mysqli_real_escape_string($connection,utf8_decode($_POST['description']));
+                    $name = mysqli_real_escape_string($connection, ($_POST['name']));
+                    $description = mysqli_real_escape_string($connection,($_POST['description']));
                     $price = mysqli_real_escape_string($connection,$_POST['price']);
-                    $place = mysqli_real_escape_string($connection, utf8_decode($_POST['place']));
-                    $date = mysqli_real_escape_string($connection, utf8_decode($_POST['date']));
+                    $place = mysqli_real_escape_string($connection, ($_POST['place']));
+                    $date = mysqli_real_escape_string($connection, ($_POST['date']));
                     $query = "INSERT into tblproductos(Nombre, Descripcion, Imagen, Precio, Lugar, Fecha) VALUES ('$name', '$description','$img', $price, '$place', '$date');";
                     $result = mysqli_query($connection, $query);
 

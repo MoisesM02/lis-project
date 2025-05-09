@@ -5,9 +5,9 @@ include('db.php');
 
 //declaración de variables
 try {
-$place = mysqli_real_escape_string($connection, utf8_decode($_POST['place']));
-$comment = mysqli_real_escape_string($connection, utf8_decode(htmlspecialchars($_POST['comment'])));
-$username = mysqli_real_escape_string($connection, htmlspecialchars(utf8_decode($_POST['username'])));
+$place = mysqli_real_escape_string($connection, ($_POST['place']));
+$comment = mysqli_real_escape_string($connection, (htmlspecialchars($_POST['comment'])));
+$username = mysqli_real_escape_string($connection, htmlspecialchars(($_POST['username'])));
 
 //obtenemos la fecha y hora actual del servidor
 date_default_timezone_set('America/El_Salvador');

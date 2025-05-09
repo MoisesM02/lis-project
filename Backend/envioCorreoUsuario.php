@@ -21,7 +21,7 @@ require '/var/www/html/PTCes/Backend/PHPMailer.php';
 require '/var/www/html/PTCes/Backend/SMTP.php';
 
     if(isset($_POST["username"])){
-        $username = mysqli_real_escape_string($connection, utf8_decode($_POST["username"]));
+        $username = mysqli_real_escape_string($connection, ($_POST["username"]));
         $query = "Select * from usuarios where usuario = '$username';";
         $result = mysqli_query($connection, $query);
         if(mysqli_num_rows($result)>0){
@@ -48,7 +48,7 @@ require '/var/www/html/PTCes/Backend/SMTP.php';
 
         $mail->AddAddress($email, "");
         $mail->SetFrom($email_from, $name_from);
-        $mail->Subject = utf8_decode("Recuperación de contraseña");
+        $mail->Subject = ("Recuperación de contraseña");
         $mail->Body = "
             <h3>Hola, $username. Haga click en el siguiente enlace para completar el formulario de recuperación de contraseña</h3>
             <a href='http://978cfbe72bc2.ngrok.io/PTCes/formRecuperar.php?account=$token'>Recuperar contraseña </a>

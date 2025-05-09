@@ -1,7 +1,7 @@
 <?php
 
     include('db.php');
-    $place = utf8_decode(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['place'])));
+    $place = (htmlspecialchars(mysqli_real_escape_string($connection, $_POST['place'])));
     
     //query
     $query = "SELECT * from places WHERE name = '$place';";
@@ -12,12 +12,12 @@
         while($row = mysqli_fetch_array($result)){
             $placeInfo[] = [
                 "id" => $row['id'],
-                "name" => utf8_encode($row['name']),
-                "description" => utf8_encode($row['description']),
+                "name" => ($row['name']),
+                "description" => ($row['description']),
                 "rating" => $row['rating'],
-                "location" => utf8_encode($row['location']),
+                "location" => ($row['location']),
                 "info" => urldecode($row["info"]),
-                "category" => utf8_encode($row['category']),
+                "category" => ($row['category']),
                 "image" => base64_encode($row['image']),
             ];
         }

@@ -1,6 +1,5 @@
 <?php 
-	
-
+	ob_start();
 	session_start();
 
 if (isset($_SESSION['usuario'])) {
@@ -20,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errores .= '<li> Fill the data correctly </li>';
 	} else {
 		try {
-			$conexion = new PDO('mysql:host=localhost;dbname=test', 'moisesm', 'Mdvlinux23');
+			$conexion = new PDO('mysql:host=db;dbname=test', 'moisesm', 'Mdvlinux23');
 		} catch (PDOException $e) {
-			echo "Error: " . $e->getMessage();
+			
 		}
 
 		$statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
@@ -55,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: login.php');
 	}
 }
-
+ob_end_flush();
 ?>
 
 

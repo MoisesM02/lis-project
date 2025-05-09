@@ -23,11 +23,11 @@ if(empty($_FILES["image"])){
             }else{
 //Preparar las variables para ejecutar sql
                 $img = addslashes(file_get_contents($image["tmp_name"]));
-                $description = mysqli_real_escape_string($connection,utf8_decode(htmlspecialchars(trim($_POST["desc"]))));
-                $name = mysqli_real_escape_string($connection,utf8_decode(htmlspecialchars($_POST["name"])));
-                $location = mysqli_real_escape_string($connection,utf8_decode(htmlspecialchars($_POST["location"])));
-                $info = mysqli_real_escape_string($connection, utf8_decode($_POST["info"]));
-                $cat = mysqli_real_escape_string($connection,utf8_decode(htmlspecialchars($_POST["category"])));
+                $description = mysqli_real_escape_string($connection,(htmlspecialchars(trim($_POST["desc"]))));
+                $name = mysqli_real_escape_string($connection,(htmlspecialchars($_POST["name"])));
+                $location = mysqli_real_escape_string($connection,(htmlspecialchars($_POST["location"])));
+                $info = mysqli_real_escape_string($connection, ($_POST["info"]));
+                $cat = mysqli_real_escape_string($connection,(htmlspecialchars($_POST["category"])));
 
 
                 $sql ="Insert into places (name, description, image, rating, location, category, info) Values ('$name', '$description', '$img', 5.0, '$location', '$cat', '$info');";

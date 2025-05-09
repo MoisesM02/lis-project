@@ -8,8 +8,8 @@ if(isset($_POST)){
         'message' => "",
         "puntuacion" => "" 
     ];
-    $username = mysqli_real_escape_string($connection, utf8_decode($_POST["user"]));
-    $place = mysqli_real_escape_string($connection, utf8_decode($_POST["plc"]));
+    $username = mysqli_real_escape_string($connection, ($_POST["user"]));
+    $place = mysqli_real_escape_string($connection, ($_POST["plc"]));
     $rating = $_POST["rate"];
 
     $checkExistRating = "SELECT * from puntuaciones WHERE usurio = '$username' && lugar = '$place'";

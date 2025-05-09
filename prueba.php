@@ -3,11 +3,11 @@
      
         include('Backend/db.php');
 
-        $name = mysqli_real_escape_string($connection, utf8_decode($_POST['name']));
-       	$ubicacion = mysqli_real_escape_string($connection, utf8_decode($_POST['location']));
-       	$descripcion = mysqli_real_escape_string($connection, utf8_decode($_POST['description']));
+        $name = mysqli_real_escape_string($connection, ($_POST['name']));
+       	$ubicacion = mysqli_real_escape_string($connection, ($_POST['location']));
+       	$descripcion = mysqli_real_escape_string($connection, ($_POST['description']));
         $info = mysqli_real_escape_string($connection, urlencode($_POST['info']));
-        $cat = mysqli_real_escape_string($connection, utf8_decode($_POST['cat']));
+        $cat = mysqli_real_escape_string($connection, ($_POST['cat']));
         $id = $_POST['id'];
         
 

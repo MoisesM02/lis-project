@@ -79,11 +79,11 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rolid"] != "1"){
                      ?>
                     <tr>
                         <td><?php echo $mostrar['id'] ?></td>
-                        <td><?php echo utf8_encode($mostrar['name']); ?></td>
-                        <td><p class="line-clamp"><?php echo utf8_encode($mostrar['description']); ?></p></td>
+                        <td><?php echo ($mostrar['name']); ?></td>
+                        <td><p class="line-clamp"><?php echo ($mostrar['description']); ?></p></td>
                         <td><?php echo $mostrar['rating']; ?></td>
-                        <td><?php echo utf8_encode($mostrar['location']); ?></td>
-                        <td><?php echo utf8_encode($mostrar['category']); ?></td>
+                        <td><?php echo ($mostrar['location']); ?></td>
+                        <td><?php echo ($mostrar['category']); ?></td>
                         <td class="line-clamp"><p class="line-clamp"><?php echo urldecode($mostrar['info']);?> </p></td>
                         <?php echo "<td> <input type='checkbox' name='eliminar[]' value='".$mostrar['id']."'/> </td>"; ?>
                         <td><a href="modificarSitio.php?parametro=<?php echo $mostrar['id']; ?>"><i class="material-icons" data-toggle="tooltip" title="Editar elemento">&#xE254;</i></a></td>

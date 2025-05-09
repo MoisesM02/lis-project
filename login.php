@@ -3,16 +3,11 @@ session_start();
 if (isset($_SESSION['usuario'])) {
 	header('Location: index.php');
 }
-	include 'Tienda/templates/cabecera2.php';
-
-
-
-
 
 $errores = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+	$usuario = htmlspecialchars(strtolower($_POST['usuario']));
 	$password = $_POST['password'];
 	$password = hash('sha512', $password);
 
@@ -35,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$_SESSION['usuario'] = $_POST['usuario'];
 		$_SESSION['rolid'] = $resultado['privilegio'];
 		$name="username";
-		$value=$resultado['rol_id'];
+		$value=$resultado['privilegio'];
 		$expiration = time() + 60*60*30;
 		setcookie($name, $value, $expiration);
 		header('Location: index.php');
@@ -43,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errores .= 'Lo sentimos, la contraseña o el usuario no coinciden.';
 	}
 }
-
+include 'Tienda/templates/cabecera2.php';
 
 ?>
 

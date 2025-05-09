@@ -2,8 +2,8 @@
 
     include("db.php");
     $id = htmlspecialchars($_POST['id']);
-    $name= mysqli_real_escape_string($connection, utf8_decode($_POST['name']));
-    $description = mysqli_real_escape_string($connection, utf8_decode($_POST['description']));
+    $name= mysqli_real_escape_string($connection, ($_POST['name']));
+    $description = mysqli_real_escape_string($connection, ($_POST['description']));
 
     $query = "UPDATE categories set name='$name', description='$description' where id='$id';";
     $result= mysqli_query($connection, $query);

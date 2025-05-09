@@ -11,8 +11,8 @@
     while($row= mysqli_fetch_array($result)){
         $json[]= array(
             'id' => $row['id'],
-            'name' => ucfirst(utf8_encode($row['name'])),
-            'description' => utf8_encode($row['description'])
+            'name' => ucfirst(($row['name'])),
+            'description' => ($row['description'])
         );
     }
     $jsonString = json_encode($json);

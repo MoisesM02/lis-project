@@ -90,7 +90,7 @@ session_start();
       include('Backend/db.php');
       if (isset($_SESSION['usuario']))
       {
-        $usuario = mysqli_real_escape_string($connection, utf8_decode($_SESSION['usuario']));
+        $usuario = mysqli_real_escape_string($connection, ($_SESSION['usuario']));
         
         echo "
         <li class=\"nav-item\">

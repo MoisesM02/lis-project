@@ -2,7 +2,7 @@
 include("db.php");
 if(isset($_POST)){
 $token = mysqli_real_escape_string($connection, $_POST["token"]);
-$newPassword = mysqli_real_escape_string($connection, utf8_decode($_POST["newPass"]));
+$newPassword = mysqli_real_escape_string($connection, ($_POST["newPass"]));
 $newPassword = hash('sha512', $newPassword);
 
 $validateToken = "SELECT * from pwdrecovery where Token = '$token';";

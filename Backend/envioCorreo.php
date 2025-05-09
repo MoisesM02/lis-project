@@ -56,7 +56,7 @@ if (isset($_POST['email'])) {
     //Configuración del envío de corre Pt. 2
     $mail->AddAddress($email, "");
     $mail->SetFrom($email_from, $name_from);
-    $mail->Subject = utf8_decode("Recuperación de contraseña");
+    $mail->Subject = ("Recuperación de contraseña");
     $mail->Body = "
         <h3>Hola, $username. Haga click en el siguiente enlace para completar el formulario de recuperación de contraseña</h3>
         <a href='http://978cfbe72bc2.ngrok.io/PTCes/formRecuperar.php?account=$token'>Recuperar contraseña </a>

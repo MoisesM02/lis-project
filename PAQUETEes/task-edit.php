@@ -4,11 +4,11 @@
 include('database.php');
 if(empty($_FILES["imagen"])){
   if(isset($_POST['id'])) {
-    $name = mysqli_real_escape_string($connection, utf8_decode($_POST['name']));
-    $description = mysqli_real_escape_string($connection,utf8_decode($_POST['description']));
+    $name = mysqli_real_escape_string($connection, ($_POST['name']));
+    $description = mysqli_real_escape_string($connection,($_POST['description']));
     $price = mysqli_real_escape_string($connection,$_POST['price']);
-    $place = mysqli_real_escape_string($connection, utf8_decode($_POST['place']));
-    $date = mysqli_real_escape_string($connection, utf8_decode($_POST['date']));
+    $place = mysqli_real_escape_string($connection, ($_POST['place']));
+    $date = mysqli_real_escape_string($connection, ($_POST['date']));
 
       $id = $_POST['id'];
       $query = "UPDATE tblproductos SET Nombre = '$name', Descripcion = '$description',  Precio = $price, Lugar = '$place', Fecha = '$date' WHERE ID = '$id'";
@@ -40,11 +40,11 @@ if(empty($_FILES["imagen"])){
 //Preparar las variables para ejecutar sql
                   if(isset($_POST['id'])) {
                   $img = addslashes(file_get_contents($image["tmp_name"]));
-                  $name = mysqli_real_escape_string($connection, utf8_decode($_POST['name']));
-                  $description = mysqli_real_escape_string($connection,utf8_decode($_POST['description']));
+                  $name = mysqli_real_escape_string($connection, ($_POST['name']));
+                  $description = mysqli_real_escape_string($connection,($_POST['description']));
                   $price = mysqli_real_escape_string($connection,$_POST['price']);
-                  $place = mysqli_real_escape_string($connection, utf8_decode($_POST['place']));
-                  $date = mysqli_real_escape_string($connection, utf8_decode($_POST['date']));
+                  $place = mysqli_real_escape_string($connection, ($_POST['place']));
+                  $date = mysqli_real_escape_string($connection, ($_POST['date']));
                   
                     $id = $_POST['id'];
                     $query = "UPDATE tblproductos SET Nombre = '$name', Descripcion = '$description', Imagen = '$img', Precio = $price, Lugar = '$place', Fecha = '$date' WHERE ID = '$id'";

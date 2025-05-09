@@ -3,7 +3,7 @@
     include('db.php');
 
     //variables 
-    $place = mysqli_real_escape_string($connection, utf8_decode($_POST['place']));
+    $place = mysqli_real_escape_string($connection, ($_POST['place']));
 
     //Creación de query para obtener los comentarios del sitio
     $query = "SELECT * from comentarios where place = '$place' ORDER BY id ASC;";
@@ -14,10 +14,10 @@
         while($row = mysqli_fetch_array($result)){
             $json[]= array(
                 'id' => $row['id'],
-                'username' => utf8_encode($row['username']),
-                'comment' => utf8_encode($row['comment']),
+                'username' => ($row['username']),
+                'comment' => ($row['comment']),
                 'date' => $row['date'],
-                'place' => utf8_encode($row['place'])
+                'place' => ($row['place'])
             );
         }
         $jsonString = json_encode($json);
