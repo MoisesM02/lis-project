@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'moisesm'@'%' IDENTIFIED BY 'Mdvlinux23';
+GRANT ALL PRIVILEGES ON test.* TO 'moisesm'@'%';
+FLUSH PRIVILEGES;
